@@ -1,0 +1,54 @@
+description: triple crutch-off — suppress inventory + crutch_off + crutch_C recruits
+inference:
+  max_new_tokens: 1500
+  modes:
+  - hooks_active: true
+    label: mode_D_suppress_on
+    note: training condition reproduced (83 neurons zeroed)
+  - hooks_active: false
+    label: mode_D_ctrl_suppress_off
+    note: LoRA only, all neurons available
+  qa_id: 1
+mode_name: D
+out_dir: J:/amr/amr_wtf/outputs/opus47_crutch_D
+suppression:
+  add_recruits:
+  - label: crutch_off
+    source: J:/amr/amr_wtf/outputs/opus47_crutch_off/raw.pt
+    top_n: 30
+  - label: crutch_C
+    source: J:/amr/amr_wtf/outputs/opus47_crutch_C/raw.pt
+    top_n: 30
+  include_inventory: true
+  inventory_regions:
+  - answer
+  - always
+  inventory_tiers:
+  - verified
+  - general
+  - lit
+  - guided_diff
+training:
+  lora_alpha: 16
+  lora_r: 8
+  lr: 0.0001
+  max_prompt_tokens: 1500
+  n_epochs: 4
+  qa_ids:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+  weights:
+    concl: 2.0
+    filler: 0.5
+    glue: 0.1

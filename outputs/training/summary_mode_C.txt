@@ -1,0 +1,129 @@
+================ Multi-QA Intent SFT — CRUTCH C (DOUBLE-OFF) ================
+
+Total suppressed: 53 neurons across 21 layers
+  inventory 23 + top-30 recruits from crutch_off run
+
+================ Suppression set ================
+-- Inventory (23) --
+  L15#1511  (verified/answer)
+  L26#449  (verified/answer)
+  L16#1298  (verified/always)
+  L26#5430  (general/answer)
+  L27#2890  (general/answer)
+  L27#10024  (lit/answer)
+  L27#6644  (lit/answer)
+  L32#9383  (lit/answer)
+  L32#8474  (lit/answer)
+  L27#8968  (lit/answer)
+  L34#8522  (lit/answer)
+  L31#604  (lit/answer)
+  L15#8146  (lit/answer)
+  L28#7686  (lit/answer)
+  L27#5590  (lit/answer)
+  L23#287  (lit/answer)
+  L27#10897  (guided_diff/answer)
+  L27#8248  (guided_diff/answer)
+  L27#6013  (guided_diff/answer)
+  L27#7036  (guided_diff/answer)
+  L27#10300  (guided_diff/answer)
+  L27#5512  (guided_diff/answer)
+  L27#10719  (guided_diff/answer)
+
+-- Recruits (30) from prev crutch_off --
+  L13#270  cum_grad_in_prev_run=1.1858
+  L33#3732  cum_grad_in_prev_run=1.1246
+  L31#1862  cum_grad_in_prev_run=1.1044
+  L27#755  cum_grad_in_prev_run=0.9648
+  L30#2371  cum_grad_in_prev_run=0.8990
+  L11#4244  cum_grad_in_prev_run=0.8744
+  L34#2625  cum_grad_in_prev_run=0.8711
+  L33#9515  cum_grad_in_prev_run=0.8644
+  L33#9912  cum_grad_in_prev_run=0.8540
+  L33#9054  cum_grad_in_prev_run=0.7710
+  L13#5017  cum_grad_in_prev_run=0.7584
+  L10#3601  cum_grad_in_prev_run=0.6879
+  L34#10350  cum_grad_in_prev_run=0.6848
+  L12#441  cum_grad_in_prev_run=0.6758
+  L34#4452  cum_grad_in_prev_run=0.6649
+  L34#7306  cum_grad_in_prev_run=0.6640
+  L32#10991  cum_grad_in_prev_run=0.6477
+  L34#9125  cum_grad_in_prev_run=0.6455
+  L34#7490  cum_grad_in_prev_run=0.6329
+  L34#10025  cum_grad_in_prev_run=0.6300
+  L8#1593  cum_grad_in_prev_run=0.5935
+  L7#936  cum_grad_in_prev_run=0.5918
+  L19#6221  cum_grad_in_prev_run=0.5893
+  L32#2832  cum_grad_in_prev_run=0.5785
+  L13#3682  cum_grad_in_prev_run=0.5730
+  L34#6715  cum_grad_in_prev_run=0.5699
+  L22#2106  cum_grad_in_prev_run=0.5660
+  L25#10664  cum_grad_in_prev_run=0.5555
+  L13#3826  cum_grad_in_prev_run=0.5428
+  L21#11618  cum_grad_in_prev_run=0.5384
+
+================ Per-QA convergence ================
+  qa   | epoch1 | epoch2 | epoch3 | epoch4 |  Δ
+  QA01  | 6.818  5.540  4.182  3.723  | +3.095
+  QA02  | 5.544  4.199  3.165  2.859  | +2.685
+  QA03  | 5.098  3.820  3.057  2.862  | +2.236
+  QA04  | 5.575  4.045  3.289  3.116  | +2.459
+  QA05  | 6.350  4.936  4.289  4.145  | +2.205
+
+================ Module totals ================
+  q_proj    : 100.16
+  k_proj    : 47.32
+  v_proj    : 148.81
+  o_proj    : 302.70
+  gate_proj : 197.77
+  up_proj   : 268.15
+  down_proj : 256.56
+
+================ Top-15 layers by cum-grad ================
+  rank  1  L12  total=95.06
+  rank  2  L13  total=80.72
+  rank  3  L34  total=67.71
+  rank  4  L 9  total=66.98
+  rank  5  L14  total=63.53
+  rank  6  L11  total=59.57
+  rank  7  L24  total=46.89
+  rank  8  L23  total=44.84
+  rank  9  L10  total=42.09
+  rank 10  L19  total=40.73
+  rank 11  L 7  total=39.96
+  rank 12  L 8  total=39.85
+  rank 13  L 4  total=39.08
+  rank 14  L 6  total=35.57
+  rank 15  L33  total=35.03
+
+================ TOP 30 RECRUITS at this level (3rd-tier crutches) ================
+  rank | L#nrn       | cum_grad
+    1  | L33#12137  | 1.1514
+    2  | L33#8565   | 1.0460
+    3  | L31#469    | 1.0133
+    4  | L33#4157   | 0.9901
+    5  | L32#1347   | 0.9519
+    6  | L31#7409   | 0.9034
+    7  | L34#9547   | 0.8272
+    8  | L28#10668  | 0.8073
+    9  | L33#1590   | 0.8015
+   10  | L24#413    | 0.7652
+   11  | L31#9744   | 0.7607
+   12  | L33#8755   | 0.7281
+   13  | L22#6036   | 0.7039
+   14  | L27#2663   | 0.6693
+   15  | L13#4703   | 0.6584
+   16  | L31#879    | 0.6569
+   17  | L24#3245   | 0.6482
+   18  | L33#3478   | 0.6394
+   19  | L27#12052  | 0.6369
+   20  | L31#9078   | 0.6350
+   21  | L32#8837   | 0.6333
+   22  | L34#10611  | 0.6251
+   23  | L32#3603   | 0.6204
+   24  | L34#5510   | 0.6118
+   25  | L27#1839   | 0.5925
+   26  | L13#4181   | 0.5811
+   27  | L26#3617   | 0.5725
+   28  | L32#5473   | 0.5714
+   29  | L32#5451   | 0.5682
+   30  | L34#6117   | 0.5673

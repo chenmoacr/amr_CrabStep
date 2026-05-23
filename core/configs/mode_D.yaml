@@ -1,0 +1,49 @@
+# Mode D — triple crutch-off (Crab Step round 3)
+# Suppress inventory (23) + Mode B recruits (30) + Mode C recruits (30) = 83 neurons.
+# Test whether further suppression continues to surface buried capability.
+#
+# All paths are relative to the repository root.
+# crutch_pipeline.py resolves them against REPO_ROOT (one level up from core/).
+
+mode_name: D
+description: "triple crutch-off — suppress inventory + Mode B + Mode C recruits"
+out_dir: outputs/training/mode_D_crutch_D
+
+suppression:
+  # Always-include base neuron inventory (filtered by tier/region)
+  include_inventory: true
+  inventory_tiers: [verified, general, lit, guided_diff]
+  inventory_regions: [answer, always]
+
+  # Plus top-N from each previous mode's cum_neuron_down (gradient absorption)
+  add_recruits:
+    - source: weights/mode_off/training_grads.pt
+      top_n: 30
+      label: mode_B_off
+    - source: weights/mode_C/training_grads.pt
+      top_n: 30
+      label: mode_C
+
+training:
+  n_epochs: 4
+  lr: 1.0e-4
+  lora_r: 8
+  lora_alpha: 16
+  max_prompt_tokens: 1500
+  qa_ids: [1, 2, 3, 4, 5]
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+  weights:
+    concl: 2.0
+    filler: 0.5
+    glue: 0.1
+
+inference:
+  qa_id: 1
+  max_new_tokens: 1500
+  modes:
+    - label: mode_D_suppress_on
+      hooks_active: true
+      note: "training condition reproduced (83 neurons zeroed)"
+    - label: mode_D_ctrl_suppress_off
+      hooks_active: false
+      note: "LoRA only, all neurons available"

@@ -1,0 +1,56 @@
+MIT License
+
+Copyright (c) 2026 IndexGuc <indexguc@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+------------------------------------------------------------------------
+
+Notes on third-party components:
+
+1. The Gemma 4 E2B-it model (Google DeepMind) is the host model required to
+   run any of this project's trained artefacts. Gemma 4 is governed by the
+   Gemma Terms of Use (https://ai.google.dev/gemma/terms). Any redistribution
+   or derivative use of the Gemma model weights themselves, separately from
+   this code, must comply with that license. This repository does NOT
+   redistribute Gemma weights; users must download Gemma 4 E2B-it directly
+   from Google (HuggingFace / Kaggle) and accept the Gemma Terms.
+
+2. The three published LoRA adapters (`weights/mode_off/`, `weights/mode_C/`,
+   `weights/mode_D/`) and the three `training_grads.pt` files are small
+   standalone PEFT / dict artefacts. They do NOT contain any portion of
+   Gemma's pre-trained weights. To use them, you must separately load the
+   corresponding host-model snapshot (verified by SHA-256 in FINGERPRINT.md).
+   These trained artefacts are released under this repository's MIT license.
+
+3. The five teacher critiques (`data/claudeopusQA0{1..5}.json`) were
+   generated with Claude Opus 4.6 during the predecessor project
+   (chenmoacr/amr_wtf, "GHOST"). They are kept here as educational reference
+   material for the SFT experiment. The author considers their use within
+   the scope of fair use under applicable law. Anthropic's Claude usage is
+   governed by their own terms of service (https://www.anthropic.com/legal).
+   If you intend to redistribute or commercialise these excerpts separately,
+   please review those terms.
+
+4. The Mode D inference output (`outputs/inference/mode_D_suppress_on.txt`,
+   `outputs/inference/mode_D_suppress_off.txt`) is a derivative work
+   produced by the trained Gemma + LoRA stack. Under Google's Gemma Output
+   Terms, outputs are owned by the entity that ran the generation. This
+   repository releases these output transcripts under MIT, but downstream
+   users should review the Gemma Terms before commercial redistribution.

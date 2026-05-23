@@ -1,0 +1,78 @@
+================ Mode D ================
+
+triple crutch-off — suppress inventory + crutch_off + crutch_C recruits
+
+Total suppressed: 83 across 22 layers
+
+================ Suppression listing ================
+  inventory entries: 23
+  recruits from crutch_off: 30
+  recruits from crutch_C: 30
+
+================ Per-QA convergence ================
+  qa   | epoch1 | epoch2 | epoch3 | epoch4 |  Δ
+  QA01  | 7.428  5.939  4.354  3.830  | +3.598
+  QA02  | 6.277  4.713  3.478  3.114  | +3.163
+  QA03  | 5.784  4.183  3.256  3.018  | +2.766
+  QA04  | 6.202  4.385  3.496  3.282  | +2.920
+  QA05  | 6.723  5.032  4.346  4.202  | +2.521
+
+================ Module totals ================
+  q_proj    : 110.56
+  k_proj    : 51.35
+  v_proj    : 146.51
+  o_proj    : 335.40
+  gate_proj : 215.94
+  up_proj   : 315.37
+  down_proj : 299.19
+
+================ Top-15 layers by cum-grad ================
+  rank  1  L12  total=104.86
+  rank  2  L13  total=91.42
+  rank  3  L34  total=70.12
+  rank  4  L11  total=68.35
+  rank  5  L14  total=65.90
+  rank  6  L 9  total=64.61
+  rank  7  L24  total=52.64
+  rank  8  L33  total=48.88
+  rank  9  L23  total=46.83
+  rank 10  L10  total=46.22
+  rank 11  L 8  total=42.52
+  rank 12  L 7  total=41.62
+  rank 13  L28  total=40.73
+  rank 14  L19  total=40.63
+  rank 15  L 4  total=40.01
+
+================ TOP 30 RECRUITS at this level ================
+  (these are the candidates for next-mode suppression)
+  rank | L#nrn       | cum_grad
+    1  | L31#2721   | 1.1994
+    2  | L28#5075   | 1.1366
+    3  | L32#11102  | 1.0115
+    4  | L28#7688   | 0.9388
+    5  | L33#2007   | 0.9179
+    6  | L33#3741   | 0.9007
+    7  | L33#12043  | 0.8881
+    8  | L32#6928   | 0.8769
+    9  | L25#5726   | 0.8731
+   10  | L31#9757   | 0.8724
+   11  | L31#7923   | 0.8419
+   12  | L33#394    | 0.8010
+   13  | L33#4199   | 0.7848
+   14  | L30#6132   | 0.7690
+   15  | L20#10534  | 0.7461
+   16  | L32#8242   | 0.7410
+   17  | L33#2853   | 0.7226
+   18  | L28#619    | 0.7111
+   19  | L33#3561   | 0.7100
+   20  | L33#3101   | 0.7005
+   21  | L26#3752   | 0.6952
+   22  | L34#3650   | 0.6942
+   23  | L32#12089  | 0.6934
+   24  | L31#7487   | 0.6632
+   25  | L28#3955   | 0.6166
+   26  | L33#4733   | 0.6135
+   27  | L31#10353  | 0.6134
+   28  | L20#6305   | 0.6062
+   29  | L34#6539   | 0.5969
+   30  | L29#4806   | 0.5951

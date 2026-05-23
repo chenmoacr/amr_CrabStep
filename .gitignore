@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Local dev scratch
+.venv/
+.env
+.idea/
+.vscode/
+
+# Runtime outputs the user generates by re-running scripts
+# (the seed outputs we ship live under outputs/ already; if you re-run
+#  the pipeline these directories will be overwritten — version-control
+#  whatever you want to keep)
+outputs/training/*/lora_adapter/
+outputs/training/*/raw.pt
+
+# Host model — NEVER commit
+gemma-4-E2B-it/
+*.safetensors.tmp

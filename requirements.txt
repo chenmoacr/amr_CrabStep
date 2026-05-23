@@ -1,0 +1,6 @@
+torch>=2.4.0
+transformers>=5.0.0
+peft>=0.10.0
+safetensors>=0.4.0
+pyyaml>=6.0
+numpy
