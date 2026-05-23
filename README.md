@@ -23,8 +23,16 @@ neurons.**
 
 ### What Crab Step is
 
-Crab Step is a four-step loop that you wrap around **any** task with a
-finite training set and a frozen LLM:
+Crab Step is **a process of alternately activating and suppressing
+neurons in order to shift a model's responses**. The underlying idea is
+simple: locate the neurons doing the work on this task, switch them
+off, then go looking for the next batch of contributors (the redundant
+backup circuits), and switch those off too. As the loop runs, the
+model's output slowly breaks out of its rigid default and drifts toward
+whatever direction the training data points at — that sideways drift
+is exactly what the "crab step" metaphor is named after. The reference
+demo in this repo shows the loop on a single-sample fine-tune; the
+four steps are:
 
 1. **Train** a low-rank adapter (LoRA, soft-prompt, ROME-style edit —
    anything trainable) on your samples.
@@ -47,7 +55,7 @@ What the trajectory tells you:
 | Loss converges, but to a qualitatively different output | Capability has **multiple solutions** — Crab Step is surfacing them |
 | Top-1 absorbed gradient halves each round      | The redundant pool is being exhausted; stop in ~2 more rounds |
 
-### What it is NOT
+### What Crab Step can't (or shouldn't) do
 
 - It is **not** a fine-tuning recipe that produces the "best" adapter.
   Each round is a *probe*, not a destination — the adapters from
@@ -62,7 +70,7 @@ What the trajectory tells you:
   experts in an MoE, or arbitrary dimensions of any intermediate
   representation.
 
-### Things people might use Crab Step for
+### What you can use Crab Step for
 
 The reference task in this repo is "make a small model write in Opus
 4.7's structured-critique style," because that's what we had data for.
@@ -273,8 +281,7 @@ Author: IndexGuc · indexguc@gmail.com · https://github.com/chenmoacr
 
 ### 螃蟹步是什么
 
-Crab Step（螃蟹步）是一个**通用四步循环**，可以套在任何「冻结底模 +
-有限训练集」的任务上：
+Crab Step（螃蟹步）是一个**对神经元激活和抑制以改变模型回答的挪动过程**，这个任务的原理在本项目上非常简单,找到相关任务神经元,关闭它,然后继续找相关的神经元(冗余电路),继续关闭.在这个过程中模型的回答将会慢慢的脱离原本僵化的回答,开始向数据集方向偏转,这一过程就形象的看起来像是个螃蟹步,而在本样例项目中则是一个单样本微调来进行展示：
 
 1. **训练**一个低秩适配器（LoRA、soft prompt、ROME 编辑——任何可训练
    的东西）在你的样本上。
@@ -286,7 +293,7 @@ Crab Step（螃蟹步）是一个**通用四步循环**，可以套在任何「�
 4. **重置后重训**——从未经修改的底模开始，用同样的数据、同样的超
    参重训一遍，但被抑制的神经元这次不能参与。回到第 1 步。
 
-跨轮次的轨迹告诉你什么：
+展示结果：
 
 | 跨轮次轨迹                              | 结论 |
 |----------------------------------------|------|
@@ -295,7 +302,7 @@ Crab Step（螃蟹步）是一个**通用四步循环**，可以套在任何「�
 | Loss 收敛了但输出明显变成另一个形态    | 能力存在**多解**——Crab Step 把它们一个个挖出来了 |
 | 每轮 top-1 招募梯度折半                | 冗余池正在耗尽，再 2 轮可以停了 |
 
-### 不是什么
+### 那么螃蟹步做不到什么或是不能做什么
 
 - **不是**一个"产出最好 adapter"的微调配方。每一轮都是一次**探针**而
   非终点——第 1、2、3 轮的 adapter 全都是合法的工件，把它们集成是一
@@ -306,7 +313,7 @@ Crab Step（螃蟹步）是一个**通用四步循环**，可以套在任何「�
   那是 Gemma 4 MLP 上最干净的单元。抑制钩子可以挂在注意力头、MoE
   expert、或任意中间表征的任意维度上。
 
-### 大家可以用螃蟹步做什么
+### 可以用螃蟹步做什么
 
 本仓库的参考任务是「让小模型写 Opus 4.7 结构化批评风格」，那只是因
 为我们手上有这份数据。但只要你想问「这个能力是不是冗余编码的？」，
